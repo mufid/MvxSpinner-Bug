@@ -8,6 +8,8 @@ using MvvmCross.Core.ViewModels;
 using MvvmCross.Droid.Views;
 using MvvmCross.Platform;
 using MvvmCross.Droid.Shared.Presenter;
+using MvvmCross.Droid.Support.V7.AppCompat;
+using MvvmCross.Binding.Bindings.Target.Construction;
 
 namespace XPlatformMenus.Droid
 {
@@ -23,7 +25,14 @@ namespace XPlatformMenus.Droid
             return new Core.App();
         }
 
-		protected override IEnumerable<Assembly> AndroidViewAssemblies => new List<Assembly>(base.AndroidViewAssemblies)
+        protected override void FillTargetFactories(IMvxTargetBindingFactoryRegistry registry)
+        {
+            MvxAppCompatSetupHelper.FillTargetFactories(registry);
+            base.FillTargetFactories(registry);
+        }
+        
+
+        protected override IEnumerable<Assembly> AndroidViewAssemblies => new List<Assembly>(base.AndroidViewAssemblies)
 		{
 			typeof(Android.Support.Design.Widget.NavigationView).Assembly,
 			typeof(Android.Support.Design.Widget.FloatingActionButton).Assembly,

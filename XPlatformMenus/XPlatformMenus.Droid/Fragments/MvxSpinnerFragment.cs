@@ -9,7 +9,6 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
-using MvvmCross.Droid.Support.V7.Fragging.Fragments;
 using XPlatformMenus.Core.ViewModels.Spinner;
 
 namespace XPlatformMenus.Droid.Fragments
